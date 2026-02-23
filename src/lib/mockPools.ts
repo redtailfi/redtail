@@ -1,7 +1,12 @@
+export type Token = {
+  symbol: string;
+  name: string;
+};
+
 export type Pool = {
   id: string;
-  token0: { symbol: string; name: string; };
-  token1: { symbol: string; name: string; };
+  token0: Token;
+  token1: Token;
   fee: number;
   tvl: number;
   volume24h: number;
