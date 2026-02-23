@@ -4,6 +4,7 @@ import "./globals.css";
 import { SITE } from "@/lib/constants";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { themeScript } from "@/lib/themeScript";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,13 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: `
-          document.documentElement.classList.toggle(
-            "dark",
-            localStorage.theme === "dark" ||
-              (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
-          );
-        ` }} />
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
