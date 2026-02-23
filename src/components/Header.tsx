@@ -11,7 +11,7 @@ export default function Header() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2">
           <div className="h-12 w-12 rounded-full">
-            <Image src={logo} alt={`${SITE.name} logo`} style={{ width: "100%", height: "100%" }} />
+            <Image src={logo} alt={`${SITE.name} logo`} style={{ width: "100%", height: "100%" }} loading="eager" />
           </div>
           <span className="text-lg font-semibold tracking-tight text-foreground">{SITE.name}</span>
         </Link>
