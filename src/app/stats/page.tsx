@@ -8,7 +8,9 @@ export default function StatsPage() {
           <BarChart3 size={32} className="text-muted" />
         </div>
         <h1 className="text-xl font-semibold text-foreground">Stats coming soon</h1>
-        <p className="max-w-sm text-sm text-muted">On-chain analytics, volume, fees, and liquidity data will appear here once the protocol launches.</p>
+        <p className="max-w-sm text-sm text-muted">
+          On-chain analytics, volume, fees, and liquidity data will appear here once the protocol launches.
+        </p>
       </div>
     </main>
   );

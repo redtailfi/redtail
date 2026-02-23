@@ -21,7 +21,7 @@ export const mockPools: Pool[] = [
     fee: 0.05,
     tvl: 284000,
     volume24h: 42000,
-    apr: 12.4
+    apr: 12.4,
   },
   {
     id: "0xabcdef1234567890abcdef1234567890abcdef12",
@@ -30,7 +30,7 @@ export const mockPools: Pool[] = [
     fee: 0.3,
     tvl: 156000,
     volume24h: 18500,
-    apr: 8.7
+    apr: 8.7,
   },
   {
     id: "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
@@ -39,8 +39,8 @@ export const mockPools: Pool[] = [
     fee: 0.01,
     tvl: 98000,
     volume24h: 31000,
-    apr: 4.2
-  }
+    apr: 4.2,
+  },
 ];
 
 export function formatUSD(value: number): string {

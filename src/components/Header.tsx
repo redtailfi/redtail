@@ -16,10 +16,18 @@ export default function Header() {
           <span className="text-lg font-semibold tracking-tight text-foreground">{SITE.name}</span>
         </Link>
         <nav className="hidden items-center gap-6 md:flex">
-          <Link href="/swap" className="text-sm text-muted transition-colors hover:text-foreground">Swap</Link>
-          <Link href="/pools" className="text-sm text-muted transition-colors hover:text-foreground">Pools</Link>
-          <Link href="/stats" className="text-sm text-muted transition-colors hover:text-foreground">Stats</Link>
-          <Link href="/docs" className="text-sm text-muted transition-colors hover:text-foreground">Docs</Link>
+          <Link href="/swap" className="text-sm text-muted transition-colors hover:text-foreground">
+            Swap
+          </Link>
+          <Link href="/pools" className="text-sm text-muted transition-colors hover:text-foreground">
+            Pools
+          </Link>
+          <Link href="/stats" className="text-sm text-muted transition-colors hover:text-foreground">
+            Stats
+          </Link>
+          <Link href="/docs" className="text-sm text-muted transition-colors hover:text-foreground">
+            Docs
+          </Link>
         </nav>
         <div className="flex items-center gap-3">
           <ThemeSwitch />

@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: {
     template: `%s | ${SITE.name}`,
-    default: SITE.name
+    default: SITE.name,
   },
   description: SITE.tagline,
 };
@@ -34,9 +34,7 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Header />
         {children}
         <Footer />

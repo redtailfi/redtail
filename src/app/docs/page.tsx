@@ -7,26 +7,26 @@ const topics = [
     icon: BookOpen,
     title: "Getting Started",
     description: "Learn how to connect your wallet, swap tokens, and navigate the protocol.",
-    status: "coming soon"
+    status: "coming soon",
   },
   {
     icon: Droplets,
     title: "Liquidity Provision",
     description: "Understand fee tiers, price ranges, and how to manage your positions.",
-    status: "coming soon"
+    status: "coming soon",
   },
   {
     icon: Shield,
     title: "Security",
     description: "Audits, smart contract addresses, and how to stay safe.",
-    status: "coming soon"
+    status: "coming soon",
   },
   {
     icon: Code,
     title: "Smart Contracts",
     description: "Technical reference for developers integrating with RedTail.",
-    status: "coming soon"
-  }
+    status: "coming soon",
+  },
 ];
 
 export default function DocsPage() {
@@ -34,7 +34,8 @@ export default function DocsPage() {
     <div>
       <h1 className="mb-2 text-2xl font-semibold text-foreground">Documentation</h1>
       <p className="mb-8 text-sm text-muted">
-        Everything you need to know about using and building on RedTail.<br />
+        Everything you need to know about using and building on RedTail.
+        <br />
         Full documentation will be available at launch.
       </p>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -54,9 +55,14 @@ export default function DocsPage() {
       <div className="mt-8 rounded-2xl border border-card-border bg-muted-bg p-5">
         <p className="text-sm text-muted">
           Have a question? Join the community on{" "}
-          <Link href={LINKS.discord} className="text-primary hover:underline">Discord</Link>
-          {" "}or reach out on{" "}
-          <Link href={LINKS.x} className="text-primary hover:underline">X</Link>.
+          <Link href={LINKS.discord} className="text-primary hover:underline">
+            Discord
+          </Link>{" "}
+          or reach out on{" "}
+          <Link href={LINKS.x} className="text-primary hover:underline">
+            X
+          </Link>
+          .
         </p>
       </div>
     </div>

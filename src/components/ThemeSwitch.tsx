@@ -46,9 +46,27 @@ export default function ThemeSwitch() {
 
   return (
     <div className="flex gap-3">
-      <button onClick={() => onThemeSelect("system")} className="text-muted transition-colors hover:text-foreground" title="System theme"><SunMoon size={16} /></button>
-      <button onClick={() => onThemeSelect("dark")} className="text-muted transition-colors hover:text-foreground" title="Dark theme"><Moon size={16} /></button>
-      <button onClick={() => onThemeSelect("light")} className="text-muted transition-colors hover:text-foreground" title="Light theme"><Sun size={16} /></button>
+      <button
+        onClick={() => onThemeSelect("system")}
+        className="text-muted transition-colors hover:text-foreground"
+        title="System theme"
+      >
+        <SunMoon size={16} />
+      </button>
+      <button
+        onClick={() => onThemeSelect("dark")}
+        className="text-muted transition-colors hover:text-foreground"
+        title="Dark theme"
+      >
+        <Moon size={16} />
+      </button>
+      <button
+        onClick={() => onThemeSelect("light")}
+        className="text-muted transition-colors hover:text-foreground"
+        title="Light theme"
+      >
+        <Sun size={16} />
+      </button>
     </div>
   );
 }

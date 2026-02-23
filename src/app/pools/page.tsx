@@ -24,15 +24,21 @@ export default function PoolsPage() {
           <span className="text-xs font-medium text-muted text-right">24h Volume</span>
           <span className="text-xs font-medium text-muted text-right">APR</span>
         </div>
-        {mockPools.map((pool, index) =>(
-          <Link key={pool.id} href={`/pools/${pool.id}`} className={`grid grid-cols-5 px-6 py-4 transition-colors hover:bg-muted-bg ${ index !== mockPools.length - 1 ? "border-b border-card-border" : "" }`}>
+        {mockPools.map((pool, index) => (
+          <Link
+            key={pool.id}
+            href={`/pools/${pool.id}`}
+            className={`grid grid-cols-5 px-6 py-4 transition-colors hover:bg-muted-bg ${index !== mockPools.length - 1 ? "border-b border-card-border" : ""}`}
+          >
             <div className="col-span-2 flex items-center gap-3">
               <div className="flex -space-x-2">
                 <div className="h-8 w-8 rounded-full bg-primary ring-2 ring-card" />
                 <div className="h-8 w-8 rounded-full bg-muted ring-2 ring-card" />
               </div>
               <div>
-                <span className="text-sm font-medium text-foreground">{pool.token0.symbol}/{pool.token1.symbol}</span>
+                <span className="text-sm font-medium text-foreground">
+                  {pool.token0.symbol}/{pool.token1.symbol}
+                </span>
                 <span className="ml-2 rounded-md bg-muted-bg px-1.5 py-0.5 text-xs text-muted">{pool.fee}%</span>
               </div>
             </div>

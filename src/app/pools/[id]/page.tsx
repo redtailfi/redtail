@@ -3,15 +3,17 @@ import { ArrowLeft, Clock, Droplets, TrendingUp } from "lucide-react";
 import { mockPools, formatUSD } from "@/lib/mockPools";
 
 export default async function PoolPage({ params }: { params: Promise<{ id: string }> }) {
-  const {id } = await params;
-  const pool = mockPools.find(p => p.id === id);
+  const { id } = await params;
+  const pool = mockPools.find((p) => p.id === id);
 
   if (!pool) {
     return (
       <main className="flex min-h-[calc(100vh-4rem)] items-center justify-center px-4">
         <div className="text-center">
           <p className="text-lg font-medium text-foreground">Pool not found</p>
-          <Link href="/pools" className="mt-2 text-sm text-primary hover:underline">Back to pools</Link>
+          <Link href="/pools" className="mt-2 text-sm text-primary hover:underline">
+            Back to pools
+          </Link>
         </div>
       </main>
     );
@@ -20,7 +22,10 @@ export default async function PoolPage({ params }: { params: Promise<{ id: strin
   return (
     <main className="min-h-[calc(100vh-4rem)] mx-auto max-w-5xl px-4 py-12 sm:px-6">
       {/* Back */}
-      <Link href="/pools" className="mb-6 flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-foreground">
+      <Link
+        href="/pools"
+        className="mb-6 flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-foreground"
+      >
         <ArrowLeft size={14} />
         Back to pools
       </Link>
@@ -31,7 +36,9 @@ export default async function PoolPage({ params }: { params: Promise<{ id: strin
           <div className="h-10 w-10 rounded-full bg-muted ring-2 ring-background" />
         </div>
         <div>
-          <h1 className="text-2xl font-semibold text-foreground">{pool.token0.symbol}/{pool.token1.symbol}</h1>
+          <h1 className="text-2xl font-semibold text-foreground">
+            {pool.token0.symbol}/{pool.token1.symbol}
+          </h1>
           <span className="text-sm text-muted">{pool.fee}% fee tier</span>
         </div>
       </div>
@@ -40,7 +47,7 @@ export default async function PoolPage({ params }: { params: Promise<{ id: strin
         {[
           { label: "Total Value Locked", value: formatUSD(pool.tvl), icon: Droplets },
           { label: "24h Volume", value: formatUSD(pool.volume24h), icon: TrendingUp },
-          { label: "APR", value: `${pool.apr}%`, icon: Clock }
+          { label: "APR", value: `${pool.apr}%`, icon: Clock },
         ].map(({ label, value, icon: Icon }) => (
           <div key={label} className="rounded-2xl border border-card-border bg-card p-5">
             <div className="mb-3 flex items-center gap-2 text-muted">
@@ -56,7 +63,9 @@ export default async function PoolPage({ params }: { params: Promise<{ id: strin
         <h2 className="mb-4 text-base font-semibold text-foreground">Your position</h2>
         <div className="flex flex-col items-center gap-3 py-6 text-center">
           <p className="text-sm text-muted">Connect your wallet to view or manage your position.</p>
-          <button className="rounded-xl bg-primary px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-primary-hover">Connect Wallet</button>
+          <button className="rounded-xl bg-primary px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-primary-hover">
+            Connect Wallet
+          </button>
         </div>
         <div className="mt-4 flex items-center gap-2 rounded-xl bg-muted-bg px-4 py-3">
           <p className="text-xs text-muted">Full position management including range selection coming at launch.</p>
