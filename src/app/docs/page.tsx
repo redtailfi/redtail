@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BookOpen, Code, Droplets, Shield } from "lucide-react";
+import { LINKS } from "@/lib/constants";
 
 const topics = [
   {
@@ -53,9 +54,9 @@ export default function DocsPage() {
       <div className="mt-8 rounded-2xl border border-card-border bg-muted-bg p-5">
         <p className="text-sm text-muted">
           Have a question? Join the community on{" "}
-          <Link href="https://discord.com" className="text-primary hover:underline">Discord</Link>
+          <Link href={LINKS.discord} className="text-primary hover:underline">Discord</Link>
           {" "}or reach out on{" "}
-          <Link href="https://x.com" className="text-primary hover:underline">X</Link>.
+          <Link href={LINKS.x} className="text-primary hover:underline">X</Link>.
         </p>
       </div>
     </div>

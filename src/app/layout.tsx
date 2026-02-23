@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { SITE } from "@/lib/constants";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -16,10 +17,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | RedTail DEX",
-    default: "RedTail DEX"
+    template: `%s | ${SITE.name}`,
+    default: SITE.name
   },
-  description: "There will never be enough decentralized exchanges...",
+  description: SITE.tagline,
 };
 
 export default function RootLayout({

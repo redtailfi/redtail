@@ -3,6 +3,7 @@ import Link from "next/link";
 import ThemeSwitch from "@/components/ThemeSwitch";
 import logo from "../../public/images/redtail-logo.svg";
 import { Wallet } from "lucide-react";
+import { SITE } from "@/lib/constants";
 
 export default function Header() {
   return (
@@ -10,9 +11,9 @@ export default function Header() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2">
           <div className="h-12 w-12 rounded-full">
-            <Image src={logo} alt="RedTail logo" style={{ width: "100%", height: "100%" }} />
+            <Image src={logo} alt={`${SITE.name} logo`} style={{ width: "100%", height: "100%" }} />
           </div>
-          <span className="text-lg font-semibold tracking-tight text-foreground">RedTail</span>
+          <span className="text-lg font-semibold tracking-tight text-foreground">{SITE.name}</span>
         </Link>
         <nav className="hidden items-center gap-6 md:flex">
           <Link href="/swap" className="text-sm text-muted transition-colors hover:text-foreground">Swap</Link>

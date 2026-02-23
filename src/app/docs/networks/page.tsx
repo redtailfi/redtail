@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CheckCircle, Clock } from "lucide-react";
+import { LINKS } from "@/lib/constants";
 
 const networks = [
   {
@@ -74,7 +75,7 @@ export default function NetworksPage() {
       <div className="mt-8 rounded-2xl border border-card-border bg-muted-bg p-5">
         <p className="text-sm text-muted">
           Want to see RedTail on another network?{" "}
-          <Link href="https://discord.com" className="text-primary hover:underline">Let us know on Discord</Link>.
+          <Link href={LINKS.discord} className="text-primary hover:underline">Let us know on Discord</Link>.
         </p>
       </div>
     </div>
