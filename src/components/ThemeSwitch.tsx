@@ -1,54 +1,54 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Moon, Sun, SunMoon } from "lucide-react";
 
+type Theme = "system" | "dark" | "light";
+
+function applyThemeToDOM(t: Theme) {
+  if (t === "system") {
+    localStorage.removeItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    document.documentElement.classList.toggle("dark", prefersDark);
+  } else {
+    localStorage.setItem("theme", t);
+    document.documentElement.classList.toggle("dark", t === "dark");
+  }
+}
+
 export default function ThemeSwitch() {
-  const [mounted, setMounted] = useState(false);
-  const [theme, setTheme] = useState<"system" | "dark" | "light">("system");
+  const [theme, setTheme] = useState<Theme>(() => {
+    if (typeof window === "undefined") return "system";
+    return (localStorage.getItem("theme") as Theme) ?? "system";
+  });
 
   useEffect(() => {
-    setMounted(true);
-    const storedTheme = localStorage.getItem("theme") as "system" | "dark" | "light" | null;
-    if (storedTheme) setTheme(storedTheme);
-  }, []);
+    applyThemeToDOM(theme);
+  }, [theme]);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
-    const handleSystemThemeChange = (e: MediaQueryListEvent) => {
+    const onSystemThemeChange = (e: MediaQueryListEvent) => {
       if (theme === "system") {
         document.documentElement.classList.toggle("dark", e.matches);
       }
-    }
-    mediaQuery.addEventListener("change", handleSystemThemeChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleSystemThemeChange);
     };
+
+    mediaQuery.addEventListener("change", onSystemThemeChange);
+    return () => mediaQuery.removeEventListener("change", onSystemThemeChange);
   }, [theme]);
 
-  const applyTheme = (theme: "system" | "dark" | "light") => {
-    setTheme(theme);
-
-    if (theme === "system") {
-      localStorage.removeItem("theme");
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      document.documentElement.classList.toggle("dark", prefersDark);
-    } else {
-      localStorage.setItem("theme", theme);
-      document.documentElement.classList.toggle("dark", theme === "dark");
-    }
+  const onThemeSelect = (t: Theme) => {
+    setTheme(t);
+    applyThemeToDOM(t);
   };
-
-  if (!mounted) return null;
 
   return (
     <div className="flex gap-3">
-      <button onClick={() => applyTheme("system")} className="text-muted transition-colors hover:text-foreground"><SunMoon size={16} /></button>
-      <button onClick={() => applyTheme("dark")} className="text-muted transition-colors hover:text-foreground"><Moon size={16} /></button>
-      <button onClick={() => applyTheme("light")} className="text-muted transition-colors hover:text-foreground"><Sun size={16} /></button>
+      <button onClick={() => onThemeSelect("system")} className="text-muted transition-colors hover:text-foreground" title="System theme"><SunMoon size={16} /></button>
+      <button onClick={() => onThemeSelect("dark")} className="text-muted transition-colors hover:text-foreground" title="Dark theme"><Moon size={16} /></button>
+      <button onClick={() => onThemeSelect("light")} className="text-muted transition-colors hover:text-foreground" title="Light theme"><Sun size={16} /></button>
     </div>
   );
 }
-
