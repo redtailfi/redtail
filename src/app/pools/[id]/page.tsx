@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowLeft, Clock, Droplets, TrendingUp } from "lucide-react";
+import TokenIcon from "@/components/ui/TokenIcon";
 import { mockPools, formatUSD } from "@/lib/mockPools";
 
 export default async function PoolPage({ params }: { params: Promise<{ id: string }> }) {
@@ -32,8 +33,12 @@ export default async function PoolPage({ params }: { params: Promise<{ id: strin
       {/* Header */}
       <div className="mb-8 flex items-center gap-4">
         <div className="flex -space-x-3">
-          <div className="h-10 w-10 rounded-full bg-primary ring-2 ring-background" />
-          <div className="h-10 w-10 rounded-full bg-muted ring-2 ring-background" />
+          <div className="rounded-full overflow-hidden ring-2 ring-card">
+            <TokenIcon symbol={pool.token0.symbol} className="w-10 h-10" />
+          </div>
+          <div className="rounded-full overflow-hidden ring-2 ring-card">
+            <TokenIcon symbol={pool.token1.symbol} className="w-10 h-10" />
+          </div>
         </div>
         <div>
           <h1 className="text-2xl font-semibold text-foreground">

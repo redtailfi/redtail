@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Droplets, Plus } from "lucide-react";
+import TokenIcon from "@/components/ui/TokenIcon";
 import { mockPools, formatUSD } from "@/lib/mockPools";
 
 export default function PoolsPage() {
@@ -32,8 +33,12 @@ export default function PoolsPage() {
           >
             <div className="col-span-2 flex items-center gap-3">
               <div className="flex -space-x-2">
-                <div className="h-8 w-8 rounded-full bg-primary ring-2 ring-card" />
-                <div className="h-8 w-8 rounded-full bg-muted ring-2 ring-card" />
+                <div className="rounded-full overflow-hidden ring-2 ring-card">
+                  <TokenIcon symbol={pool.token0.symbol} className="w-8 h-8" />
+                </div>
+                <div className="rounded-full overflow-hidden ring-2 ring-card">
+                  <TokenIcon symbol={pool.token1.symbol} className="w-8 h-8" />
+                </div>
               </div>
               <div>
                 <span className="text-sm font-medium text-foreground">

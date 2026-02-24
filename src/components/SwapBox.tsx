@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ArrowDownUp, ChevronDown, Settings2 } from "lucide-react";
+import TokenIcon from "@/components/ui/TokenIcon";
 
 export default function SwapBox() {
   const [fromAmount, setFromAmount] = useState("");
@@ -31,7 +32,9 @@ export default function SwapBox() {
             className="w-full bg-transparent text-2xl font-medium text-foreground outline-none placeholder:text-muted"
           />
           <button className="flex items-center gap-1.5 rounded-xl bg-card px-3 py-1.5 text-sm font-medium text-foreground shadow-sm transition-colors hover:bg-card-border">
-            <div className="h-4 w-4 rounded-full bg-primary" />
+            <div className="rounded-full overflow-hidden ring-2 ring-card">
+              <TokenIcon symbol="ETH" className="w-4 h-4" />
+            </div>
             ETH
             <ChevronDown size={14} className="text-muted" />
           </button>
