@@ -8,7 +8,7 @@ A community-first DEX on Base.
 
 - Next.js 16, React, TypeScript
 - Tailwind CSS v4
-- wagmi + viem (coming soon)
+- wagmi + viem
 - Uniswap v4 (coming soon)
 
 ## Development
