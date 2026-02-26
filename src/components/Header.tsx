@@ -1,7 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import ConnectWalletButton from "@/components/ConnectWalletButton";
 import ThemeSwitch from "@/components/ThemeSwitch";
-import { Wallet } from "lucide-react";
 import { SITE } from "@/lib/constants";
 
 export default function Header() {
@@ -35,11 +37,7 @@ export default function Header() {
         </nav>
         <div className="flex items-center gap-3">
           <ThemeSwitch />
-          <button className="rounded-xl bg-primary px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-hover">
-            <div className="flex items-center gap-2">
-              <Wallet size={16} /> Connect Wallet
-            </div>
-          </button>
+          <ConnectWalletButton />
         </div>
       </div>
     </header>
